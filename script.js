@@ -29,5 +29,5 @@ const dateTime = () => {
   currentTime.innerHTML = `${fullTime} ${session}`;   
 }
 
-// Calling Current Time Function 
+// Calling Current Time Function  
 setInterval(dateTime, 1000)
