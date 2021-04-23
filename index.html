@@ -2,92 +2,29 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Digital Clock</title>  
+  <title>Javascript: Digital Clock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+
+  <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@700;800;900&display=swap">
-  <link rel="stylesheet" href="styles.css">	
+  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div style="height: 90vh" class="d-flex mt-4 justify-content-center align-items-center">
-  	<div class="container">
-
-    	<h1 class="display-1 text-danger mb-4">Digital Clock</h1>
-        
-    	<div class="text-danger display-4 text-center" id="dClock">Digital Clock</div>
+	<div class="wrapper">    
+		<div class="container">
+	
+		  <h1 class="display-3 text-danger">Digital Clock</h1>
+		  <p class="lead">Check the current time in your system 🙂!</p>     
+      	
+		<div class="display-3 text-center" id="currentTime">Digital Clock</div>
 	</div>
   </div>
-  <script>
-  	const dateTime = () => {
-  		let days = ['Sunday', 'Monday', 'Tuesday',  'Wednesday',  'Thursday',  'Friday',  'Saturday']
-  		let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']  		
-  		let extension = ['st', 'nd', 'rd', 'th']
-
-	  	let d = new Date();
-	  	//console.log(d)
-	  	let dClock = document.getElementById("dClock")
-
-	  	let day = d.getDay();
-	  	let dt = d.getDate();  	
-		let m = d.getMonth();  	
-	  	let y = d.getFullYear();
-
-	  	//day < 10 ? '0' + day : day;
-	  	dt = checkSingleDigit(dt);
-	  	m = checkSingleDigit(m);
-
-	  	//Checking the Day
-	  	const checkDay = () => {
-	  		for( var x = 0; x<days.length; x++){
-	  			if( day == x ){
-			  		return day = days[x]
-			  	}
-	  		}
-	  	}	  
-
-	  	//dt % 10 == 1 && dt != 11 ? dt + 'st' : (dt % 10 == 2 && dt != 12 ? dt + 'nd' : (dt % 10 == 3 && dt != 13 ? dt + 'rd' : dt + 'th'))
-
-	  	//Checking the Month
-		const checkMonth = () => {
-			for(var x = 0; x<months.length; x++){
-				if(m == x){
-					return m = months[x]
-				}
-			}
-		}		
-
-	  	let fullDate = `Date: <strong>${checkDay()}, ${dt} ${checkMonth()}, ${y}</strong>`
-	  	dClock.innerHTML = fullDate;
-
-	  	let hours = d.getHours();
-	  	let minutes = d.getMinutes(); 	
-	  	let seconds = d.getSeconds();
-	  	let session = "AM";
-
-	  	hours == 0 ? hours = 12 : hours;
-
-	  	//console.log(hours)
-
-		if(hours > 12){			
-			hours = hours - 12;
-			session = "PM";
-		}else{
-			hours;
-		}
-
-	  	hours = checkSingleDigit(hours);
-	  	minutes = checkSingleDigit(minutes);
-	  	seconds = checkSingleDigit(seconds);	  	
-
-		let fullTime = `${hours} : ${minutes} : ${seconds}`;
-
-		dClock.innerHTML += `<br>Current Time: <strong>${fullTime} ${session}</strong>`;
-
-	  	setInterval(dateTime, 1000)
-	}	
-	
-	const checkSingleDigit = i => (i < 10) ? '0' + i : i;	
-	
-	dateTime();	
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

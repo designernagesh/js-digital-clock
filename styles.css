@@ -1,13 +1,62 @@
+:root{
+  --primary-color: #dc3545
+}
+*{
+  box-sizing: border-box;
+  margin: 0;  padding: 0;
+}
 body{
-  background: #F1F1F1;
+  background:  #e9ecef;
+}
+.wrapper{
+  height: 100vh;
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
 .container{
   background: #FFF;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0,0,0, 0.2);
-  padding: 120px;
+  padding: 30px; min-height: 300px;
 }
 h1{
-  font-family: 'Saira Extra Condensed', sans-serif;
   text-align: center;
+  font-family: 'Saira Extra Condensed', sans-serif; 
+}
+p.lead{
+  font-family: 'Yellowtail', cursive;
+  font-size: 24px;
+  position: relative;
+  text-align: center;
+  margin-bottom: 60px;
+}
+p.lead::after{
+  position: absolute;
+  content: '';
+  width: 75px;
+  height: 4px;
+  background-color: var(--primary-color);  
+  bottom: -15px;
+  transform: translate(-50%);
+  left: 50%;
+}
+#currentTime{
+  font-family: 'Saira Extra Condensed', sans-serif; 
+  font-size: 90px;
+}
+
+/*/////////////////////////////////////////////////////////////
+  [ Responsive CSS Starts Here ]
+*/
+@media(max-width: 600px){
+  .container {
+    width: 90%;
+  }
+  .display-3 {
+    font-size: 2.5rem;
+  }
+  p.lead {  
+    font-size: 21px;
+  }
 }
